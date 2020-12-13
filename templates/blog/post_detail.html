@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="col-md-8 offset-md-2">
+<a class="btn btn-success" href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil fa-2x"></i>Hariri</a>
+<a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}"><i class="fa fa-times fa-2x"></i>Ondoa</a>
+    <h1>{{ post.title }}</h1>
+	<img  src="{{ post.cover.url}}"  alt="" width="100%">
+    
+	 <div class="card-body">
+	 <small>
+        {{ post.created_on.date }} 
+    </small>
+    <p>{{ post.text| linebreaks }}</p>
+     </div>
+{% endblock %}
